@@ -32,7 +32,8 @@
     <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"
           p:dataSource-ref="dataSource"
           p:packagesToScan="org.abychyk.crm.model.domain"
-          p:hibernateProperties-ref="hibernateProperties" />
+          p:hibernateProperties-ref="hibernateProperties"
+          p:mappingResources="hibernate.cfg.xml"/>
     <util:properties id="hibernateProperties">
         <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
         <prop key="hibernate.show_sql">true</prop>
