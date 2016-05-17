@@ -23,7 +23,7 @@ public class Company implements Serializable {
     private String billingCity;
     @Column(name = "BILLING_COUNTRY")
     private String billingCountry;
-    @Column(name = "BILLING_STERET")
+    @Column(name = "BILLING_STREET")
     private String billingStreet;
     @Column(name = "BILLING_ZIP")
     private String billingZip;
@@ -38,10 +38,10 @@ public class Company implements Serializable {
     private Set<Group> groups;
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
     private Set<CompanyOwner> companyOwners;
-    @OneToMany(mappedBy = "initCompany", cascade = CascadeType.ALL)
+    /*@OneToMany(mappedBy = "initCompany", cascade = CascadeType.ALL)
     private Set<Opportunity> initOpporunitySet;
     @OneToMany(mappedBy = "refCompany", cascade = CascadeType.ALL)
-    private Set<Opportunity> refOpportunitySet;
+    private Set<Opportunity> refOpportunitySet;*/
 
     public String getName() {
         return name;
@@ -131,7 +131,7 @@ public class Company implements Serializable {
         this.companyOwners = companyOwners;
     }
 
-    public Set<Opportunity> getInitOpporunitySet() {
+    /*public Set<Opportunity> getInitOpporunitySet() {
         return initOpporunitySet;
     }
 
@@ -145,5 +145,5 @@ public class Company implements Serializable {
 
     public void setRefOpportunitySet(Set<Opportunity> refOpportunitySet) {
         this.refOpportunitySet = refOpportunitySet;
-    }
+    }*/
 }

@@ -10,6 +10,10 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "ACCOUNT")
+@NamedQueries({
+        @NamedQuery(name = "Account.findAllWithAddress",
+        query = "select distinct from Account a left join fetch a.address ad")
+})
 public class Account implements Serializable {
     @Id @GeneratedValue
     @Column(name = "ID")
@@ -28,14 +32,14 @@ public class Account implements Serializable {
     private String phone;
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Address> address;
-    @OneToOne(mappedBy = "account", cascade = CascadeType.ALL)
+    /*@OneToOne(mappedBy = "account", cascade = CascadeType.ALL)
     private CompanyOwner companyOwner;
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private Set<Order> orderSet;
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
     private  Set<Case> caseSet;
     @OneToOne(mappedBy = "account", cascade = CascadeType.ALL)
-    private Employee employee;
+    private Employee employee;*/
 
     public Long getId() {
         return id;
@@ -101,7 +105,7 @@ public class Account implements Serializable {
         this.address = address;
     }
 
-    public CompanyOwner getCompanyOwner() {
+    /*public CompanyOwner getCompanyOwner() {
         return companyOwner;
     }
 
@@ -131,5 +135,5 @@ public class Account implements Serializable {
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
-    }
+    }*/
 }

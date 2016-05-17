@@ -25,10 +25,10 @@ public class Product implements Serializable {
     @ManyToOne
     @JoinColumn(name = "COMPANY_ID")
     private Company company;
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    /*@OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private Set<OrderDetails> orderDetailsSet;
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-    private Set<Case> caseSet;
+    private Set<Case> caseSet;*/
 
     public String getName() {
         return name;
@@ -78,7 +78,7 @@ public class Product implements Serializable {
         this.company = company;
     }
 
-    public Set<Case> getCaseSet() {
+    /*public Set<Case> getCaseSet() {
         return caseSet;
     }
 
@@ -92,5 +92,5 @@ public class Product implements Serializable {
 
     public void setOrderDetailsSet(Set<OrderDetails> orderDetailsSet) {
         this.orderDetailsSet = orderDetailsSet;
-    }
+    }*/
 }

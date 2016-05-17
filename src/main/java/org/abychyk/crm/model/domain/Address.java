@@ -21,7 +21,7 @@ public class Address implements Serializable {
     @Column(name = "ZIP_CODE")
     private String zip;
     @ManyToOne
-    @JoinColumn(name = "ACCOUNT_ID")
+    @JoinColumn(name = "ACCOUNT_ID") //TODO fk address to company
     private Account account;
 
     public Long getId() {

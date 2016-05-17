@@ -10,6 +10,7 @@ import java.util.List;
 public interface AccountDao {
     List<Account> findAll();
     Account findById(Long id);
+    List<Account> findAllWithAddress();
     //create and update
     Account save(Account account);
     void delete(Account account);
