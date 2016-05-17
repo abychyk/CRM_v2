@@ -12,7 +12,7 @@ import java.util.Date;
 public class Case implements Serializable {
     public enum Priority {LOW, NORMAL, HIGH}
     public enum Status {NEW, IN_WORK, CLOSED}
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
     @Column(name = "CASE_NAME")

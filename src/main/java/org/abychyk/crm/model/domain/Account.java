@@ -12,10 +12,10 @@ import java.util.Set;
 @Table(name = "ACCOUNT")
 @NamedQueries({
         @NamedQuery(name = "Account.findAllWithAddress",
-        query = "select distinct from Account a left join fetch a.address ad")
+        query = "select distinct a from Account a left join fetch a.address ad")
 })
 public class Account implements Serializable {
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
     @Column(name = "EMAIL")

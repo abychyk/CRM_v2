@@ -9,7 +9,7 @@ import java.util.Set;
 @Entity
 @Table(name = "GROUP")
 public class Group {
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
     @Column(name = "GROUP_NAME")

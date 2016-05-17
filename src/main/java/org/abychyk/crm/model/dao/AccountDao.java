@@ -11,6 +11,7 @@ public interface AccountDao {
     List<Account> findAll();
     Account findById(Long id);
     List<Account> findAllWithAddress();
+    Account findWithParameters(Account account);
     //create and update
     Account save(Account account);
     void delete(Account account);

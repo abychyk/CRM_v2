@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "COMPANY_OWNER")
 public class CompanyOwner {
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
     @OneToOne

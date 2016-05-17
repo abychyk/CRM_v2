@@ -11,7 +11,7 @@ import java.util.Set;
 @Entity
 @Table(name = "ORDER")
 public class Order implements Serializable {
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
     @Temporal(TemporalType.DATE)
