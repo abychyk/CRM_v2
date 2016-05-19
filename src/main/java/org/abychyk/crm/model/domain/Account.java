@@ -30,7 +30,10 @@ public class Account implements Serializable {
     private Date birthDate;
     @Column(name = "PHONE")
     private String phone;
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ManyToMany
+    @JoinTable(name = "ACCOUNT_ADDRESS",
+        joinColumns = @JoinColumn(name = "ACCOUNT_ID"),
+        inverseJoinColumns = @JoinColumn(name = "ADDRESS_ID"))
     private Set<Address> address;
     /*@OneToOne(mappedBy = "account", cascade = CascadeType.ALL)
     private CompanyOwner companyOwner;

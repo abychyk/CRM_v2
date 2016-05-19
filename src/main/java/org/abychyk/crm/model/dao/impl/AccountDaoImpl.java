@@ -23,14 +23,17 @@ public class AccountDaoImpl implements AccountDao {
         return sessionFactory.getCurrentSession().createQuery("from Account a").list();
     }
 
+    @Transactional(readOnly = true)
     public Account findById(Long id) {
         return sessionFactory.getCurrentSession().get(Account.class, id);
     }
 
+    @Transactional(readOnly = true)
     public List<Account> findAllWithAddress() {
         return sessionFactory.getCurrentSession().getNamedQuery("Account.findAllWithAddress").list();
     }
 
+    @Transactional(readOnly = true)
     public Account findWithParameters(Account account) {
         Criteria c = sessionFactory.getCurrentSession().createCriteria(Account.class);
         c.add(Restrictions.eq("email", account.getEmail()));
@@ -49,9 +52,6 @@ public class AccountDaoImpl implements AccountDao {
         sessionFactory.getCurrentSession().delete(account);
     }
 
-    public SessionFactory getSessionFactory() {
-        return sessionFactory;
-    }
     @Resource(name = "sessionFactory")
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;

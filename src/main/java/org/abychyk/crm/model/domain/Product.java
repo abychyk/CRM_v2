@@ -2,6 +2,7 @@ package org.abychyk.crm.model.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.Set;
 
@@ -21,14 +22,14 @@ public class Product implements Serializable {
     @Column(name = "PRODUCT_CODE")
     private String productCode;
     @Column(name = "DEFAULT_PRICE")
-    private Currency defaultPrice;
+    private BigDecimal defaultPrice;
     @ManyToOne
     @JoinColumn(name = "COMPANY_ID")
     private Company company;
     /*@OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private Set<OrderDetails> orderDetailsSet;
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-    private Set<Case> caseSet;*/
+    private Set<Case> issueSet;*/
 
     public String getName() {
         return name;
@@ -54,14 +55,6 @@ public class Product implements Serializable {
         this.productCode = productCode;
     }
 
-    public Currency getDefaultPrice() {
-        return defaultPrice;
-    }
-
-    public void setDefaultPrice(Currency defaultPrice) {
-        this.defaultPrice = defaultPrice;
-    }
-
     public Long getId() {
         return id;
     }
@@ -78,12 +71,20 @@ public class Product implements Serializable {
         this.company = company;
     }
 
-    /*public Set<Case> getCaseSet() {
-        return caseSet;
+    public BigDecimal getDefaultPrice() {
+        return defaultPrice;
     }
 
-    public void setCaseSet(Set<Case> caseSet) {
-        this.caseSet = caseSet;
+    public void setDefaultPrice(BigDecimal defaultPrice) {
+        this.defaultPrice = defaultPrice;
+    }
+
+    /*public Set<Case> getIssueSet() {
+        return issueSet;
+    }
+
+    public void setCaseSet(Set<Case> issueSet) {
+        this.issueSet = issueSet;
     }
 
     public Set<OrderDetails> getOrderDetailsSet() {

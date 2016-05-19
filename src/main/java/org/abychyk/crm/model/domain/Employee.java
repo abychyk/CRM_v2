@@ -2,6 +2,7 @@ package org.abychyk.crm.model.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Currency;
 import java.util.Date;
 import java.util.Set;
@@ -16,7 +17,9 @@ public class Employee implements Serializable {
     @Column(name = "ID")
     private Long id;
     @Column(name = "SALARY")
-    private Currency salary;
+    private BigDecimal salary;
+    @Column(name = "POSITION")
+    private String position;
     @Temporal(TemporalType.DATE)
     @Column(name = "HIRE_DATE")
     private Date hireDate;
@@ -35,14 +38,6 @@ public class Employee implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Currency getSalary() {
-        return salary;
-    }
-
-    public void setSalary(Currency salary) {
-        this.salary = salary;
     }
 
     public Date getHireDate() {
@@ -75,5 +70,21 @@ public class Employee implements Serializable {
 
     public void setOrderSet(Set<Order> orderSet) {
         this.orderSet = orderSet;
+    }
+
+    public BigDecimal getSalary() {
+        return salary;
+    }
+
+    public void setSalary(BigDecimal salary) {
+        this.salary = salary;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
     }
 }

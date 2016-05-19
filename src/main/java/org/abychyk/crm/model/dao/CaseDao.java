@@ -8,9 +8,9 @@ import java.util.List;
  * Created by abychik on 15.05.2016.
  */
 public interface CaseDao {
-    List<Case> findAll();
+    List findAll();
     Case findById(Long id);
     //create and update
-    Case save(Case case_);
-    void delete(Case case_);
+    Case save(Case aCase);
+    void delete(Case aCase);
 }

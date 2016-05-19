@@ -36,6 +36,7 @@
     <util:properties id="hibernateProperties">
         <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
         <prop key="hibernate.show_sql">true</prop>
+        <prop key="hibernate.globally_quoted_identifiers">true</prop>
     </util:properties>
 
 </beans>

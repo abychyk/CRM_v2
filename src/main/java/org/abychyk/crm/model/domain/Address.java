@@ -12,6 +12,8 @@ public class Address implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
+    @Column(name = "BUILDING_NUMBER")
+    private String buildingNumber;
     @Column(name = "STREET_NAME")
     private String street;
     @Column(name = "CITY_NAME")
@@ -20,9 +22,9 @@ public class Address implements Serializable {
     private String country;
     @Column(name = "ZIP_CODE")
     private String zip;
-    @ManyToOne
-    @JoinColumn(name = "ACCOUNT_ID") //TODO fk address to company
-    private Account account;
+/*    @ManyToOne
+    @JoinColumn(name = "ACCOUNT_ID")
+    private Account account;*/
 
     public Long getId() {
         return id;
@@ -64,11 +66,19 @@ public class Address implements Serializable {
         this.zip = zip;
     }
 
-    public Account getAccount() {
+    /*public Account getAccount() {
         return account;
     }
 
     public void setAccount(Account account) {
         this.account = account;
+    }*/
+
+    public String getBuildingNumber() {
+        return buildingNumber;
+    }
+
+    public void setBuildingNumber(String buildingNumber) {
+        this.buildingNumber = buildingNumber;
     }
 }

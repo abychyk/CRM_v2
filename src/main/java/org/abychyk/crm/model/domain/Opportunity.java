@@ -53,4 +53,35 @@ public class Opportunity {
     }
 
 
+    public Long getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Long amount) {
+        this.amount = amount;
+    }
+
+    public Company getInitCompany() {
+        return initCompany;
+    }
+
+    public void setInitCompany(Company initCompany) {
+        this.initCompany = initCompany;
+    }
+
+    public Company getRefCompany() {
+        return refCompany;
+    }
+
+    public void setRefCompany(Company refCompany) {
+        this.refCompany = refCompany;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

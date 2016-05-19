@@ -2,6 +2,7 @@ package org.abychyk.crm.model.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Statement;
 import java.util.Date;
 
 /**
@@ -10,8 +11,19 @@ import java.util.Date;
 @Entity
 @Table(name = "CASE")
 public class Case implements Serializable {
+    /*public enum Priority {LOW("Low"), NORMAL("Normal"), HIGH("High");
+        private final String id;
+        Priority(String id) {this.id = id;}
+        public String getValue() {return id;}
+    }
+    public enum Status {NEW("New"), IN_WORK("In work"), CLOSED("Closed");
+        private final String id;
+        Status(String id) {this.id = id;}
+        public String getValue() {return id;}
+    }*/
     public enum Priority {LOW, NORMAL, HIGH}
     public enum Status {NEW, IN_WORK, CLOSED}
+
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
@@ -29,8 +41,10 @@ public class Case implements Serializable {
     @Temporal(TemporalType.DATE)
     @Column(name = "CASE_DATE_CLOSE")
     private Date dateClose;
+    @Enumerated(EnumType.ORDINAL)
     @Column(name = "CASE_PRIORITY")
     private Priority priority;
+    @Enumerated(EnumType.ORDINAL)
     @Column(name = "CASE_STATUS")
     private Status status;
     @ManyToOne

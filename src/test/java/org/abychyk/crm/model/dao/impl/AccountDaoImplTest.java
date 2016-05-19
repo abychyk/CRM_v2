@@ -1,4 +1,4 @@
-package org.abychyk.crm.model.dao;
+package org.abychyk.crm.model.dao.impl;
 
 import org.abychyk.crm.model.dao.AccountDao;
 import org.abychyk.crm.model.domain.Account;
@@ -21,7 +21,7 @@ import java.util.List;
  * Created by abychyk on 17.05.2016.
  */
 @FixMethodOrder(MethodSorters.JVM)
-public class AccountDaoTest {
+public class AccountDaoImplTest {
     ApplicationContext context = new FileSystemXmlApplicationContext(System.getProperty("user.dir") + "/src/main/resources/app-context-annotation.xml");
     AccountDao accountDao = null;
     List<Account> accountList = null;

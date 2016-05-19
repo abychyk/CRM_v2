@@ -2,6 +2,7 @@ package org.abychyk.crm.model.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Currency;
 
 /**
@@ -14,7 +15,7 @@ public class OrderDetails implements Serializable {
     @Column(name = "ID")
     private Long id;
     @Column(name = "UNIT_PRICE")
-    private Currency unitPrice;
+    private BigDecimal unitPrice;
     @Column(name = "QUANTITY")
     private Long quantity;
     @Column(name = "DISCOUNT")
@@ -32,14 +33,6 @@ public class OrderDetails implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Currency getUnitPrice() {
-        return unitPrice;
-    }
-
-    public void setUnitPrice(Currency unitPrice) {
-        this.unitPrice = unitPrice;
     }
 
     public Long getQuantity() {
@@ -72,5 +65,13 @@ public class OrderDetails implements Serializable {
 
     public void setOrder(Order order) {
         this.order = order;
+    }
+
+    public BigDecimal getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(BigDecimal unitPrice) {
+        this.unitPrice = unitPrice;
     }
 }
