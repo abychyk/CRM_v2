@@ -26,6 +26,7 @@ public class Account implements Serializable {
     private String firstName;
     @Column(name = "LAST_NAME")
     private String lastName;
+    @Temporal(TemporalType.DATE)
     @Column(name = "BIRTH_DATE")
     private Date birthDate;
     @Column(name = "PHONE")
