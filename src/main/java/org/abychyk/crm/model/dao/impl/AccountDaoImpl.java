@@ -3,6 +3,7 @@ package org.abychyk.crm.model.dao.impl;
 import org.abychyk.crm.model.dao.AccountDao;
 import org.abychyk.crm.model.domain.Account;
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -46,6 +47,17 @@ public class AccountDaoImpl implements AccountDao {
     public Account save(Account account) {
         sessionFactory.getCurrentSession().saveOrUpdate(account);
         return account;
+    }
+
+    public boolean isValidAccount(Account account) {
+        Query query = sessionFactory.getCurrentSession().createQuery("from Account a where a.email = :email and a.password = :password");
+        query.setString("email", account.getEmail());
+        query.setString("password", account.getPassword());
+        Account accountDB = (Account) query.list().get(0);
+        if (account == null)
+            return false;
+        else
+            return true;
     }
 
     public void delete(Account account) {

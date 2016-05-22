@@ -14,5 +14,6 @@ public interface AccountDao {
     Account findWithParameters(Account account);
     //create and update
     Account save(Account account);
+    boolean isValidAccount(Account account);
     void delete(Account account);
 }
