@@ -24,8 +24,9 @@
             <div class="collapse navbar-collapse">
                 <p class="navbar-text">CRM system</p>
                 <div class="nav navbar-nav navbar-right">
-                    <a href="<c:url value="login.jsp"/>" class="btn btn-primary navbar-btn">Login</a>
-                    <a href="<c:url value="signUp.jsp"/>" class="btn btn-success navbar-btn">Sign Up</a>
+                    <a href="<c:url value="/login"/>" class="btn btn-primary navbar-btn">Login</a>
+                    <input type="button" onclick="<c:url value="/login" />" value="Login" class="btn btn-primary navbar-btn">
+                    <a href="<c:url value="/sighUp"/>" class="btn btn-success navbar-btn">Sign Up</a>
                 </div>
             </div>
         </div>
