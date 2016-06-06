@@ -26,7 +26,7 @@ public class LoginController {
         return "login";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    //@RequestMapping(value = "/login", method = RequestMethod.POST)
     public ModelAndView executeLogin(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("account") Account account) {
         ModelAndView mav = null;
         try {
