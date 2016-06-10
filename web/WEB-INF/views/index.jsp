@@ -7,10 +7,9 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
+home page spring
+<%--<html>
 <head>
-    <title>CRM</title>
-    <link href="<c:url value='/resources/bootstrap/css/bootstrap.css' />" rel="stylesheet"/>
     <link href="<c:url value='/resources/styles/app.css' />" rel="stylesheet"/>
 </head>
 <body>
@@ -25,17 +24,17 @@
                 <p class="navbar-text">CRM system</p>
                 <div class="nav navbar-nav navbar-right">
                     <a href="<c:url value="/login"/>" class="btn btn-success navbar-btn">Login</a>
-                    <%--<input type="button" onclick="<c:url value="/login" />" value="Login" class="btn btn-primary navbar-btn">--%>
+                    &lt;%&ndash;<input type="button" onclick="<c:url value="/login" />" value="Login" class="btn btn-primary navbar-btn">&ndash;%&gt;
                     <a href="<c:url value="/sighUp"/>" class="btn btn-primary navbar-btn">Sign Up</a>
                 </div>
             </div>
         </div>
     </nav>
-    <%--<div class="container">
+    &lt;%&ndash;<div class="container">
         <div class="col-md-4 col-md-offset-8">
             <a href="<c:url value="login.jsp"/>" class="btn btn-primary">Login</a>
             <a href="<c:url value="signUp.jsp"/>" class="btn btn-success">Sign Up</a>
         </div>
-    </div>--%>
+    </div>&ndash;%&gt;
 </body>
-</html>
+</html>--%>

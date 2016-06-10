@@ -21,7 +21,7 @@ public class AccountController {
     public String list(Model uiModel) {
         List<Account> accountList = accountDao.findAll();
         uiModel.addAttribute("accounts", accountList);
-        return "accounts/list";
+        return "accounts";
     }
     @Autowired
     public void setAccountDao(AccountDao accountDao) {
