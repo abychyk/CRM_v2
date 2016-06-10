@@ -17,4 +17,9 @@
         <put-attribute name="body" value="/WEB-INF/views/accounts.jsp" />
         <!--<put-attribute name="current" value="accounts"/>-->
     </definition>
+    <definition name="register" extends="common">
+        <put-attribute name="title" value="Register" />
+        <put-attribute name="body" value="/WEB-INF/views/register.jsp" />
+        <!--<put-attribute name="current" value="accounts"/>-->
+    </definition>
 </tiles-definitions>

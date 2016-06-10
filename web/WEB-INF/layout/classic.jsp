@@ -46,7 +46,7 @@ ${current}--%>
                 <ul class="nav navbar-nav">
                     <li><a href="<spring:url value="/"/>">Home</a></li>
                     <li><a href="<spring:url value="/accounts"/>">Accounts</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="<spring:url value="/register"/>">Register</a></li>
                 </ul>
 
             </div><!--/.nav-collapse -->

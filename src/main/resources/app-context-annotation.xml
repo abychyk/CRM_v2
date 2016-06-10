@@ -38,4 +38,5 @@
         <prop key="hibernate.globally_quoted_identifiers">true</prop>
     </util:properties>
 
+    <import resource="file:**/security.xml"/>
 </beans>
