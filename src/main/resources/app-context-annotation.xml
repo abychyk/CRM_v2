@@ -30,8 +30,7 @@
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"
           p:dataSource-ref="dataSource"
-          p:packagesToScan="org.abychyk.crm.model"
-          p:hibernateProperties-ref="hibernateProperties"/>
+          p:packagesToScan="org.abychyk.crm.model"/><!--p:hibernateProperties-ref="hibernateProperties"-->
     <!--//TODO local or distributed transaction-->
     <util:properties id="hibernateProperties">
         <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
@@ -39,5 +38,5 @@
         <prop key="hibernate.globally_quoted_identifiers">true</prop>
     </util:properties>
 
-    <import resource="file:**/security.xml"/>
+    <!--<import resource="file:**/security.xml"/>-->
 </beans>

@@ -11,16 +11,24 @@
     <definition name="index" extends="common">
         <put-attribute name="title" value="Spring CRM" />
         <put-attribute name="body" value="/WEB-INF/views/index.jsp" />
-        <put-attribute name="current" value="index"/>
+        <put-attribute name="current" value="index" cascade="true"/>
     </definition>
+
     <definition name="accounts/list" extends="common">
         <put-attribute name="title" value="Accounts" />
         <put-attribute name="body" value="/WEB-INF/views/accounts/list.jsp" />
-        <!--<put-attribute name="current" value="accounts"/>-->
+        <put-attribute name="current" value="accounts" cascade="true"/>
     </definition>
+
     <definition name="register" extends="common">
         <put-attribute name="title" value="Register" />
         <put-attribute name="body" value="/WEB-INF/views/register.jsp" />
-        <!--<put-attribute name="current" value="accounts"/>-->
+        <put-attribute name="current" value="register" cascade="true"/>
+    </definition>
+
+    <definition name="login" extends="common">
+        <put-attribute name="title" value="Login" />
+        <put-attribute name="body" value="/WEB-INF/views/login.jsp" />
+        <put-attribute name="current" value="login" cascade="true"/>
     </definition>
 </tiles-definitions>

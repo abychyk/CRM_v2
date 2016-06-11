@@ -1,4 +1,10 @@
-.navbar-header img {
-    max-height: 100%;
-    width: auto;
+.login-container {
+    /*margin-top: 100px;
+    width: 40%;*/
+    left: 30%;
+    width: 50%;
+    margin: 0 auto;}
+.inner {
+    width: 50%;
+    margin: 0 auto;
 }

@@ -7,17 +7,23 @@
 		http://www.springframework.org/schema/security
 		http://www.springframework.org/schema/security/spring-security.xsd">
 
-    <http>
-        <intercept-url pattern="/" access="ROLE_ADMIN" />
-        <csrf disabled="true"/>
-        <form-login />
-        <logout />
+    <http auto-config="true" use-expressions="true">
+        <intercept-url pattern="/accounts" access="hasRole('ROLE_ADMIN')" />
+        <csrf/>
+        <form-login login-page="/login" username-parameter="ssoId" password-parameter="password"/>
+        <logout logout-url="/logout"/>
     </http>
     <authentication-manager>
         <authentication-provider>
-            <user-service>
+            <jdbc-user-service data-source-ref="dataSource"
+                               authorities-by-username-query="SELECT ACCOUNT.EMAIL, ROLE.ROLE_NAME FROM ACCOUNT
+                                                                JOIN ROLE_ACCOUNT ON ACCOUNT.ID = ROLE_ACCOUNT.ACCOUNT_ID
+                                                                JOIN ROLE ON ROLE_ACCOUNT.ROLE_ID = ROLE.ID WHERE ACCOUNT.EMAIL = ?"
+                               users-by-username-query="SELECT a.EMAIL, a.PASSWORD, enabled FROM Account a WHERE a.EMAIL = ?"/>
+            <!--<user-service>
                 <user name="admin" password="admin" authorities="ROLE_USER, ROLE_ADMIN" />
-            </user-service>
+                <user name="user" password="user" authorities="ROLE_USER" />
+            </user-service>-->
         </authentication-provider>
     </authentication-manager>
 

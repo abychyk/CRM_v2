@@ -36,6 +36,11 @@ public class Account implements Serializable {
         joinColumns = @JoinColumn(name = "ACCOUNT_ID"),
         inverseJoinColumns = @JoinColumn(name = "ADDRESS_ID"))
     private Set<Address> address;
+    @ManyToMany
+    @JoinTable(name = "ROLE_ACCOUNT",
+            joinColumns = @JoinColumn(name = "ACCOUNT_ID"),
+            inverseJoinColumns = @JoinColumn(name = "ROLE_ID"))
+    private Set<Role> roleSet;
     /*@OneToOne(mappedBy = "account", cascade = CascadeType.ALL)
     private CompanyOwner companyOwner;
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
@@ -107,6 +112,14 @@ public class Account implements Serializable {
 
     public void setAddress(Set<Address> address) {
         this.address = address;
+    }
+
+    public Set<Role> getRoleSet() {
+        return roleSet;
+    }
+
+    public void setRoleSet(Set<Role> roleSet) {
+        this.roleSet = roleSet;
     }
 
     /*public CompanyOwner getCompanyOwner() {
