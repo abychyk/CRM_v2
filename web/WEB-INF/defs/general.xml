@@ -5,16 +5,17 @@
 <tiles-definitions>
     <definition name="common" template="/WEB-INF/layout/classic.jsp">
         <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
+        <!--<put-attribute name="current" value="index"/>-->
     </definition>
 
     <definition name="index" extends="common">
         <put-attribute name="title" value="Spring CRM" />
         <put-attribute name="body" value="/WEB-INF/views/index.jsp" />
-        <!--<put-attribute name="current" value="index"/>-->
+        <put-attribute name="current" value="index"/>
     </definition>
-    <definition name="accounts" extends="common">
+    <definition name="accounts/list" extends="common">
         <put-attribute name="title" value="Accounts" />
-        <put-attribute name="body" value="/WEB-INF/views/accounts.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/accounts/list.jsp" />
         <!--<put-attribute name="current" value="accounts"/>-->
     </definition>
     <definition name="register" extends="common">

@@ -32,6 +32,7 @@
           p:dataSource-ref="dataSource"
           p:packagesToScan="org.abychyk.crm.model"
           p:hibernateProperties-ref="hibernateProperties"/>
+    <!--//TODO local or distributed transaction-->
     <util:properties id="hibernateProperties">
         <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
         <prop key="hibernate.show_sql">true</prop>
