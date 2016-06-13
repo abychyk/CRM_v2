@@ -9,7 +9,7 @@ import java.util.Set;
 @Entity
 @Table(name = "ROLE")
 public class Role {
-    @Id
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private long id;
     @Column(name = "ROLE_NAME")

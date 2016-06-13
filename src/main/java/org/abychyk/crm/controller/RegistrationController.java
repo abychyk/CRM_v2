@@ -30,6 +30,6 @@ public class RegistrationController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String doRegistration(@ModelAttribute("account") Account account) {
         accountDao.save(account);
-        return "register";
+        return "redirect:/register?success=true";
     }
 }

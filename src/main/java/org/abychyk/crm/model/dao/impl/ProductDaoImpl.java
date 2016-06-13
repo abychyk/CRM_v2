@@ -2,6 +2,7 @@ package org.abychyk.crm.model.dao.impl;
 
 import org.abychyk.crm.model.dao.ProductDao;
 import org.abychyk.crm.model.domain.Product;
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,6 +34,13 @@ public class ProductDaoImpl implements ProductDao {
     public void delete(Product product) {
         sessionFactory.getCurrentSession().delete(product);
     }
+
+    public List<Product> findByCompanyId(long id) {
+        Query query = sessionFactory.getCurrentSession().createQuery("from Product p where p.company.id = :id");
+        query.setLong("id", id);
+        return query.list();
+    }
+
     @Resource(name = "sessionFactory")
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;

@@ -27,7 +27,7 @@
         <property name="username" value="${jdbc.username}" />
         <property name="password" value="${jdbc.password}" />
     </bean>
-
+    <bean name="dataSourceClass" class="org.abychyk.config.DataSourceConfig"/>
     <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"
           p:dataSource-ref="dataSource"
           p:packagesToScan="org.abychyk.crm.model"/><!--p:hibernateProperties-ref="hibernateProperties"-->

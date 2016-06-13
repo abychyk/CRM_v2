@@ -22,6 +22,8 @@ public class Account implements Serializable {
     private String email;
     @Column(name = "PASSWORD")
     private String password;
+    /*@Column(name = "enabled")
+    private int enabled;*/
     @Column(name = "FIRST_NAME")
     private String firstName;
     @Column(name = "LAST_NAME")
@@ -31,7 +33,7 @@ public class Account implements Serializable {
     private Date birthDate;
     @Column(name = "PHONE")
     private String phone;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "ACCOUNT_ADDRESS",
         joinColumns = @JoinColumn(name = "ACCOUNT_ID"),
         inverseJoinColumns = @JoinColumn(name = "ADDRESS_ID"))
@@ -121,6 +123,14 @@ public class Account implements Serializable {
     public void setRoleSet(Set<Role> roleSet) {
         this.roleSet = roleSet;
     }
+
+    /*public int getActive() {
+        return enabled;
+    }
+
+    public void setActive(int enabled) {
+        this.enabled = enabled;
+    }*/
 
     /*public CompanyOwner getCompanyOwner() {
         return companyOwner;

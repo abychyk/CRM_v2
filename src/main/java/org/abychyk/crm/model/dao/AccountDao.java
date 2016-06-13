@@ -16,4 +16,6 @@ public interface AccountDao {
     Account save(Account account);
     boolean isValidAccount(Account account);
     void delete(Account account);
+
+    Account findByEmailWithDetails(String email);
 }

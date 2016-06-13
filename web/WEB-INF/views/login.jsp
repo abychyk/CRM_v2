@@ -16,6 +16,7 @@
         <c:if test="${param.error != null}">
             <div class="alert alert-danger">
                 <p>Invalid email or password</p>
+                <p>Reason: ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}</p>
             </div>
         </c:if>
         <c:if test="${param.logout != null}">
@@ -24,14 +25,14 @@
             </div>
         </c:if>
         <label for="username" class="sr-only">Email address</label>
-        <input type="text" id="username" name="ssoId" class="form-control" placeholder="Username" required autofocus>
+        <input type="text" id="username" name="ssoId" class="form-control" placeholder="Email" required autofocus>
         <label for="password" class="sr-only">Password</label>
         <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
+        <%--<div class="checkbox">
             <label>
-                <input type="checkbox" value="remember-me"> Remember me
+                <input type="checkbox" id="remember" name="_spring_security_remember-me" value="true"> Remember me
             </label>
-        </div>
+        </div>--%>
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
     </form>

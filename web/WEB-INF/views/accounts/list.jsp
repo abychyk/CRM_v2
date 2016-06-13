@@ -16,6 +16,8 @@
             <th>First Name</th>
             <th>Last Name</th>
             <th>Birth Date</th>
+            <th>Email</th>
+            <th>Password</th>
         </tr>
         </thead>
         <tbody>
@@ -24,6 +26,8 @@
                 <td>${account.firstName}</td>
                 <td>${account.lastName}</td>
                 <td>${account.birthDate}</td>
+                <td>${account.email}</td>
+                <td>${account.password}</td>
             </tr>
         </c:forEach>
         </tbody>

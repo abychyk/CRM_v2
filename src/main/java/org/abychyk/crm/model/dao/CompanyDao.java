@@ -1,5 +1,6 @@
 package org.abychyk.crm.model.dao;
 
+import org.abychyk.crm.model.domain.Account;
 import org.abychyk.crm.model.domain.Company;
 
 import java.util.List;
@@ -13,4 +14,6 @@ public interface CompanyDao {
     //create and update
     Company save(Company company);
     void delete(Company company);
+
+    Company findByOwner(Account account);
 }

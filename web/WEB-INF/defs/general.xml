@@ -31,4 +31,28 @@
         <put-attribute name="body" value="/WEB-INF/views/login.jsp" />
         <put-attribute name="current" value="login" cascade="true"/>
     </definition>
+
+    <definition name="userProfile" extends="common">
+        <put-attribute name="title" value="User Profile" />
+        <put-attribute name="body" value="/WEB-INF/views/userProfile.jsp" />
+        <put-attribute name="current" value="userProfile" cascade="true"/>
+    </definition>
+
+    <definition name="company" extends="common">
+        <put-attribute name="title" value="Company Profile" />
+        <put-attribute name="body" value="/WEB-INF/views/company.jsp" />
+        <put-attribute name="current" value="company" cascade="true"/>
+    </definition>
+
+    <definition name="products" extends="common">
+        <put-attribute name="title" value="Company Profile" />
+        <put-attribute name="body" value="/WEB-INF/views/products.jsp" />
+        <put-attribute name="current" value="products" cascade="true"/>
+    </definition>
+
+    <definition name="buy" extends="common">
+        <put-attribute name="title" value="Company Profile" />
+        <put-attribute name="body" value="/WEB-INF/views/buy.jsp" />
+        <put-attribute name="current" value="buy" cascade="true"/>
+    </definition>
 </tiles-definitions>

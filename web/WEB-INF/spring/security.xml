@@ -9,22 +9,34 @@
 
     <http auto-config="true" use-expressions="true">
         <intercept-url pattern="/accounts" access="hasRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/login" access="permitAll"/>
+        <intercept-url pattern="/profile" access="hasRole('ROLE_USER')"/>
+        <intercept-url pattern="/products" access="hasRole('ROLE_USER')"/>
+        <intercept-url pattern="/company" access="hasRole('ROLE_USER')"/>
+        <intercept-url pattern="/company/**" access="hasRole('ROLE_USER')"/>
+        <intercept-url pattern="/buy" access="hasRole('ROLE_USER')"/>
         <csrf/>
         <form-login login-page="/login" username-parameter="ssoId" password-parameter="password"/>
         <logout logout-url="/logout"/>
+        <!--<remember-me key="myAppKey" />-->
     </http>
     <authentication-manager>
         <authentication-provider>
+            <!--<password-encoder ref="encoder" />-->
             <jdbc-user-service data-source-ref="dataSource"
+                               users-by-username-query="SELECT EMAIL,PASSWORD,1 FROM ACCOUNT WHERE EMAIL=?"
                                authorities-by-username-query="SELECT ACCOUNT.EMAIL, ROLE.ROLE_NAME FROM ACCOUNT
                                                                 JOIN ROLE_ACCOUNT ON ACCOUNT.ID = ROLE_ACCOUNT.ACCOUNT_ID
-                                                                JOIN ROLE ON ROLE_ACCOUNT.ROLE_ID = ROLE.ID WHERE ACCOUNT.EMAIL = ?"
-                               users-by-username-query="SELECT a.EMAIL, a.PASSWORD, enabled FROM Account a WHERE a.EMAIL = ?"/>
-            <!--<user-service>
-                <user name="admin" password="admin" authorities="ROLE_USER, ROLE_ADMIN" />
-                <user name="user" password="user" authorities="ROLE_USER" />
-            </user-service>-->
+                                                                JOIN ROLE ON ROLE_ACCOUNT.ROLE_ID = ROLE.ID WHERE ACCOUNT.EMAIL = ?"/>
         </authentication-provider>
+        <!--<authentication-provider>
+            <user-service>
+                <user name="admin1" password="admin" authorities="ROLE_USER, ROLE_ADMIN" />
+                <user name="user1" password="user" authorities="ROLE_USER" />
+            </user-service>
+        </authentication-provider>-->
     </authentication-manager>
-
+    <beans:bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+        <beans:constructor-arg name="strength" value="11" />
+    </beans:bean>
 </beans:beans>

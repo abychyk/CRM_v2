@@ -13,4 +13,6 @@ public interface ProductDao {
     //create and update
     Product save(Product product);
     void delete(Product product);
+
+    List<Product> findByCompanyId(long id);
 }

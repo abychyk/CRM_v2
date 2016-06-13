@@ -26,7 +26,7 @@ public class Company implements Serializable {
     private Date creationDate;
     @OneToMany(mappedBy = "company")
     private Set<Product> product;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "COMPANY_ADDRESS",
         joinColumns = @JoinColumn(name = "COMPANY_ID"),
         inverseJoinColumns = @JoinColumn(name = "ADDRESS_ID"))
@@ -36,8 +36,12 @@ public class Company implements Serializable {
         joinColumns = @JoinColumn(name = "COMPANY_ID"),
         inverseJoinColumns = @JoinColumn(name = "GROUP_ID"))
     private Set<Group> groups;
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
-    private Set<CompanyOwner> companyOwners;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "ACCOUNT_ID")
+    private Account account;
+    /*@OneToMany(mappedBy = "company", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<CompanyOwner> companyOwners;*/
     /*@OneToMany(mappedBy = "initCompany", cascade = CascadeType.ALL)
     private Set<Opportunity> initOpporunitySet;
     @OneToMany(mappedBy = "refCompany", cascade = CascadeType.ALL)
@@ -91,13 +95,13 @@ public class Company implements Serializable {
         this.groups = groups;
     }
 
-    public Set<CompanyOwner> getCompanyOwners() {
+    /*public Set<CompanyOwner> getCompanyOwners() {
         return companyOwners;
     }
 
     public void setCompanyOwners(Set<CompanyOwner> companyOwners) {
         this.companyOwners = companyOwners;
-    }
+    }*/
 
     public Set<Address> getAddressSet() {
         return addressSet;
@@ -113,6 +117,14 @@ public class Company implements Serializable {
 
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
     /*public Set<Opportunity> getInitOpporunitySet() {
