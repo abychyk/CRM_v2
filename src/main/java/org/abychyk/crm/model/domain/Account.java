@@ -1,5 +1,7 @@
 package org.abychyk.crm.model.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -29,6 +31,7 @@ public class Account implements Serializable {
     @Column(name = "LAST_NAME")
     private String lastName;
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
     @Column(name = "BIRTH_DATE")
     private Date birthDate;
     @Column(name = "PHONE")
@@ -38,7 +41,7 @@ public class Account implements Serializable {
         joinColumns = @JoinColumn(name = "ACCOUNT_ID"),
         inverseJoinColumns = @JoinColumn(name = "ADDRESS_ID"))
     private Set<Address> address;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "ROLE_ACCOUNT",
             joinColumns = @JoinColumn(name = "ACCOUNT_ID"),
             inverseJoinColumns = @JoinColumn(name = "ROLE_ID"))

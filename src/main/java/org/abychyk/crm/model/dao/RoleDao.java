@@ -13,4 +13,6 @@ public interface RoleDao {
     //create and update
     Role save(Role role);
     void delete(Role role);
+
+    Role findByName(String roleName);
 }

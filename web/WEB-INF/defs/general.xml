@@ -26,6 +26,12 @@
         <put-attribute name="current" value="register" cascade="true"/>
     </definition>
 
+    <!--<definition name="registerAdmin" extends="common">
+        <put-attribute name="title" value="Register" />
+        <put-attribute name="body" value="/WEB-INF/views/registerAdmin.jsp" />
+        <put-attribute name="current" value="registerAdmin" cascade="true"/>
+    </definition>-->
+
     <definition name="login" extends="common">
         <put-attribute name="title" value="Login" />
         <put-attribute name="body" value="/WEB-INF/views/login.jsp" />
@@ -45,14 +51,39 @@
     </definition>
 
     <definition name="products" extends="common">
-        <put-attribute name="title" value="Company Profile" />
+        <put-attribute name="title" value="Products" />
         <put-attribute name="body" value="/WEB-INF/views/products.jsp" />
         <put-attribute name="current" value="products" cascade="true"/>
     </definition>
 
     <definition name="buy" extends="common">
-        <put-attribute name="title" value="Company Profile" />
+        <put-attribute name="title" value="Buy" />
         <put-attribute name="body" value="/WEB-INF/views/buy.jsp" />
         <put-attribute name="current" value="buy" cascade="true"/>
     </definition>
+
+    <definition name="addressAdd" extends="common">
+        <put-attribute name="title" value="Add address" />
+        <put-attribute name="body" value="/WEB-INF/views/addressAdd.jsp" />
+        <put-attribute name="current" value="addressAdd" cascade="true"/>
+    </definition>
+
+    <definition name="addresses" extends="common">
+        <put-attribute name="title" value="Addresses" />
+        <put-attribute name="body" value="/WEB-INF/views/addresses.jsp" />
+        <put-attribute name="current" value="addresses" cascade="true"/>
+    </definition>
+
+    <definition name="productsAll" extends="common">
+        <put-attribute name="title" value="Products" />
+        <put-attribute name="body" value="/WEB-INF/views/productsAll.jsp" />
+        <put-attribute name="current" value="products" cascade="true"/>
+    </definition>
+
+    <definition name="makeOrder" extends="common">
+        <put-attribute name="title" value="Make Order" />
+        <put-attribute name="body" value="/WEB-INF/views/makeOrder.jsp" />
+        <put-attribute name="current" value="makeOrder" cascade="true"/>
+    </definition>
+
 </tiles-definitions>

@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: abychik
-  Date: 10.06.2016
-  Time: 10:20
+  Date: 13.06.2016
+  Time: 10:05
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -40,12 +40,6 @@
         <label for="birthDate" class="col-sm-2 control-label">Birth Date:</label>
         <div class="col-sm-10">
             <form:input path="birthDate" cssClass="form-control"/>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="phone" class="col-sm-2 control-label">Phone:</label>
-        <div class="col-sm-10">
-            <form:input path="phone" cssClass="form-control"/>
         </div>
     </div>
     <div class="form-group">

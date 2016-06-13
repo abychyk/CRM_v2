@@ -2,80 +2,80 @@
   Created by IntelliJ IDEA.
   User: abychik
   Date: 13.06.2016
-  Time: 2:22
+  Time: 13:03
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="../layout/taglib.jsp"%>
 
-<c:if test="${not empty products}">
-    <h1>Products of company: ${products.get(0).company.name}</h1>
+<h1>Address Listing</h1>
+<c:if test="${not empty addresses}">
     <table class="table table-bordered table-responsive table-hover table-striped">
         <thead>
         <tr>
-            <th>Product Name</th>
-            <th>Description</th>
-            <th>Code</th>
-            <th>Default Price</th>
-            <security:authorize access="hasRole('ROLE_CEO')">
-                <th>Remove</th>
-            </security:authorize>
+            <th>Address</th>
+            <%--<th>Country</th>
+            <th>City</th>
+            <th>Street</th>
+            <th>Building</th>--%>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${products}" var="product">
+        <c:forEach items="${addresses}" var="address">
             <tr>
-                <td>${product.name}</td>
-                <td>${product.description}</td>
-                <td>${product.productCode}</td>
-                <td>${product.defaultPrice}</td>
-                <security:authorize access="hasRole('ROLE_CEO')">
-                    <td><a href="<c:url value="/company/${hostCompany.id}/products/remove/${product.id}"/>" class="glyphicon glyphicon-remove"></a></td>
-                </security:authorize>
+                <td>
+                    <a href="<spring:url value="/company/${companyId}/address/${address.id}"/>">${address.zip} ${address.country} ${address.city} ${address.street} ${address.buildingNumber}</a>
+                </td>
+                <%--<td>${account.lastName}</td>
+                <td>${account.birthDate}</td>
+                <td>${account.email}</td>
+                <td>${account.password}</td>--%>
             </tr>
         </c:forEach>
         </tbody>
     </table>
 </c:if>
-<c:if test="${empty products}">
-    <h1>The company ${hostCompany.name} has no products</h1>
-</c:if>
-<!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-    Add Product
+    Add address
 </button>
-<form:form commandName="product" cssClass="form-horizontal">
+<form:form commandName="address" cssClass="form-horizontal">
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    <h4 class="modal-title" id="myModalLabel">Add address</h4>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="name" class="col-sm-2 control-label">Product Name:</label>
+                        <label for="zip" class="col-sm-2 control-label">Zip:</label>
                         <div class="col-sm-10">
-                            <form:input path="name" cssClass="form-control"/>
+                            <form:input path="zip" cssClass="form-control"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="productCode" class="col-sm-2 control-label">Product Code:</label>
+                        <label for="country" class="col-sm-2 control-label">Country:</label>
                         <div class="col-sm-10">
-                            <form:input path="productCode" cssClass="form-control"/>
+                            <form:input path="country" cssClass="form-control"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="defaultPrice" class="col-sm-2 control-label">Default Price:</label>
+                        <label for="city" class="col-sm-2 control-label">City:</label>
                         <div class="col-sm-10">
-                            <form:input path="defaultPrice" cssClass="form-control"/>
+                            <form:input path="city" cssClass="form-control"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="description" class="col-sm-2 control-label">Description:</label>
+                        <label for="street" class="col-sm-2 control-label">Street:</label>
                         <div class="col-sm-10">
-                            <form:textarea path="description" cssClass="form-control"/>
+                            <form:input path="street" cssClass="form-control"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="buildingNumber" class="col-sm-2 control-label">Building:</label>
+                        <div class="col-sm-10">
+                            <form:input path="buildingNumber" cssClass="form-control"/>
                         </div>
                     </div>
                 </div>
@@ -87,4 +87,3 @@
         </div>
     </div>
 </form:form>
-

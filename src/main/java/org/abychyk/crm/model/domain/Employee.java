@@ -29,8 +29,8 @@ public class Employee implements Serializable {
     @OneToOne
     @JoinColumn(name = "ACCOUNT_ID")
     private Account account;
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
-    private Set<Order> orderSet;
+    /*@OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    private Set<Order> orderSet;*/
 
     public Long getId() {
         return id;
@@ -64,13 +64,13 @@ public class Employee implements Serializable {
         this.account = account;
     }
 
-    public Set<Order> getOrderSet() {
+    /*public Set<Order> getOrderSet() {
         return orderSet;
     }
 
     public void setOrderSet(Set<Order> orderSet) {
         this.orderSet = orderSet;
-    }
+    }*/
 
     public BigDecimal getSalary() {
         return salary;

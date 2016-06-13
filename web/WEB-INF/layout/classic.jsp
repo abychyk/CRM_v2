@@ -46,13 +46,20 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+
                     <li class="${current == 'index' ? 'active' : ''}"><a href="<spring:url value="/"/>">Home</a></li>
+                    <security:authorize access="isAuthenticated() and !hasRole('ROLE_ADMIN')">
+                        <li class="${current == 'userProfile' ? 'active' : ''}"><a href="<spring:url value="/profile"/>">Profile</a></li>
+                        <li class="${current == 'company' ? 'active' : ''}"><a href="<spring:url value="/company"/>">Company</a></li>
+                        <%--<li class="${current == 'buy' ? 'active' : ''}"><a href="<spring:url value="/buy"/>">Buy</a></li>--%>
+                    </security:authorize>
                     <security:authorize access="hasRole('ROLE_ADMIN')">
                         <li class="${current == 'accounts' ? 'active' : ''}"><a href="<spring:url value="/accounts"/>">Accounts</a></li>
+                        <li class="${current == 'companies' ? 'active' : ''}"><a href="<spring:url value="/companies"/>">Companies</a></li>
                     </security:authorize>
-                    <security:authorize access="isAuthenticated()">
-                        <li class="${current == 'userProfile' ? 'active' : ''}"><a href="<spring:url value="/profile"/>">Profile</a></li>
-                        <li class="${current == 'buy' ? 'active' : ''}"><a href="<spring:url value="/buy"/>">Buy</a></li>
+                    <security:authorize access="hasAnyRole('ROLE_CEO', 'ROLE_USER')">
+                        <li class="${current == 'products' ? 'active' : ''}"><a href="<spring:url value="/products"/>">Products</a></li>
+                        <li class="${current == 'orders' ? 'active' : ''}"><a href="<spring:url value="/orders"/>">Orders</a></li>
                     </security:authorize>
 
                 </ul>
@@ -60,6 +67,7 @@
                     <security:authorize access="!isAuthenticated()">
                         <li class="${current == 'login' ? 'active' : ''}"><a href="<spring:url value="/login"/>">Login</a></li>
                         <li class="${current == 'register' ? 'active' : ''}"><a href="<spring:url value="/register"/>">Register</a></li>
+                        <%--<li class="${current == 'registerAdmin' ? 'active' : ''}"><a href="<spring:url value="/registerAdmin"/>">Register Admin</a></li>--%>
                     </security:authorize>
                     <security:authorize access="isAuthenticated()">
                         <li><a href="<spring:url value="/logout"/>">Logout</a></li>

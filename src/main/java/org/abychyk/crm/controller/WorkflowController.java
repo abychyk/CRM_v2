@@ -19,7 +19,7 @@ import java.security.Principal;
 /**
  * Created by abychik on 12.06.2016.
  */
-@Controller
+//@Controller
 public class WorkflowController {
 
     @Autowired

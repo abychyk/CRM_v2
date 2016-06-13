@@ -23,7 +23,7 @@ public class Product implements Serializable {
     private String productCode;
     @Column(name = "DEFAULT_PRICE")
     private BigDecimal defaultPrice;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "COMPANY_ID")
     private Company company;
     /*@OneToMany(mappedBy = "product", cascade = CascadeType.ALL)

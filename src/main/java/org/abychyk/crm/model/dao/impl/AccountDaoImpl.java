@@ -49,7 +49,8 @@ public class AccountDaoImpl implements AccountDao {
     }
 
     public Account save(Account account) {
-        account.setPassword(passwordEncoder.encode(account.getPassword()));
+        if (account.getId() == null)
+            account.setPassword(passwordEncoder.encode(account.getPassword()));
         sessionFactory.getCurrentSession().saveOrUpdate(account);
         return account;
     }

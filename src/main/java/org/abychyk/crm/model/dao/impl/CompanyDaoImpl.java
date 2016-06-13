@@ -42,6 +42,8 @@ public class CompanyDaoImpl implements CompanyDao {
         Query query = sessionFactory.getCurrentSession().createQuery("from Company c where c.account.email = :email");
         query.setString("email", account.getEmail());
         List<Company> companyList = query.list();
+        if (companyList.size() == 0)
+            return null;
         return (Company) query.list().get(0);
     }
 

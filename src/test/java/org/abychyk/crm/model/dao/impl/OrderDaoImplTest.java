@@ -63,7 +63,7 @@ public class OrderDaoImplTest {
         AccountDao accountDao = (AccountDao) context.getBean("accountDao");
         EmployeeDao employeeDao = (EmployeeDao) context.getBean("employeeDao");
         order.setAccount(accountDao.findById(1l));
-        order.setEmployee(employeeDao.findById(1l));
+        /*order.setEmployee(employeeDao.findById(1l));*/
         orderDao.save(order);
         assertEquals(count + 1, orderDao.findAll().size());
     }

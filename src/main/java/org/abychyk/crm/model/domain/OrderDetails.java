@@ -20,10 +20,10 @@ public class OrderDetails implements Serializable {
     private Long quantity;
     @Column(name = "DISCOUNT")
     private int discount;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "PRODUCT_ID")
     private Product product;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "ORDER_ID")
     private Order order;
 

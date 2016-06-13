@@ -24,9 +24,9 @@ public class Company implements Serializable {
     private String phone;
     @Column(name = "CREATION_DATE")
     private Date creationDate;
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company", fetch = FetchType.EAGER)
     private Set<Product> product;
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "COMPANY_ADDRESS",
         joinColumns = @JoinColumn(name = "COMPANY_ID"),
         inverseJoinColumns = @JoinColumn(name = "ADDRESS_ID"))
@@ -125,6 +125,15 @@ public class Company implements Serializable {
 
     public void setAccount(Account account) {
         this.account = account;
+    }
+
+    public void removeProduct(Product product) {
+        Product tmp = new Product();
+        for (Product includedProduct : getProduct()) {
+            if (includedProduct.getId() == product.getId())
+                tmp = includedProduct;
+        }
+        getProduct().remove(tmp);
     }
 
     /*public Set<Opportunity> getInitOpporunitySet() {

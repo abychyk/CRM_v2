@@ -1,5 +1,7 @@
 package org.abychyk.crm.model.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -15,12 +17,15 @@ public class Order implements Serializable {
     @Column(name = "ID")
     private Long id;
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
     @Column(name = "ORDER_DATE")
     private Date orderDate;
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
     @Column(name = "REQUIRED_DATE")
     private Date requiredDate;
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
     @Column(name = "SHIPPED_DATE")
     private Date shippedDate;
     @Column(name = "SHIP_ADDRESS")
@@ -29,14 +34,14 @@ public class Order implements Serializable {
     private String shipCity;
     @Column(name = "SHIP_COUNTRY")
     private String shipCountry;
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<OrderDetails> orderDetailsSet;
     @ManyToOne
     @JoinColumn(name = "ACCOUNT_ID")
     private Account account;
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "EMPLOYEE_ID")
-    private Employee employee;
+    private Employee employee;*/
 
     public Long getId() {
         return id;
@@ -102,13 +107,13 @@ public class Order implements Serializable {
         this.account = account;
     }
 
-    public Employee getEmployee() {
+   /* public Employee getEmployee() {
         return employee;
     }
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
-    }
+    }*/
 
     public Set<OrderDetails> getOrderDetailsSet() {
         return orderDetailsSet;

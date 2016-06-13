@@ -2,6 +2,7 @@ package org.abychyk.crm.model.dao.impl;
 
 import org.abychyk.crm.model.dao.RoleDao;
 import org.abychyk.crm.model.domain.Role;
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,6 +34,13 @@ public class RoleDaoImpl implements RoleDao {
     public void delete(Role role) {
         sessionFactory.getCurrentSession().delete(role);
     }
+
+    public Role findByName(String roleName) {
+        Query query = sessionFactory.getCurrentSession().createQuery("from Role r where r.roleName = :roleName");
+        query.setString("roleName", roleName);
+        return (Role) query.list().get(0);
+    }
+
     @Resource(name = "sessionFactory")
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
